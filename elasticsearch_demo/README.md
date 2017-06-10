@@ -1,0 +1,1 @@
+# Python简单操作elasticsearch的示例
