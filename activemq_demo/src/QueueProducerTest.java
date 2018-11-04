@@ -16,6 +16,6 @@ public class QueueProducerTest {
             producer.close();
         } else {
             System.out.println("mq初始化失败！");
-        }
+        } 
     }
 }
