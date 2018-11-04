@@ -1,1 +1,1 @@
-# Python简单操作elasticsearch的示例
+# python和java简单操作elasticsearch的示例
