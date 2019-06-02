@@ -21,3 +21,8 @@ activemq_demo/.idea/
 
 # elasticsearch
 elasticsearch_demo/.idea
+
+# idea
+.idea
+out
+target
