@@ -19,6 +19,8 @@ public class KafkaConsumerExample {
 		Properties props = new Properties();
 		props.put("bootstrap.servers", "192.168.139.129:9092");
 	    props.put("group.id", "test");
+		// 当分区无偏移时 earliest: 最早 latest: 最新  默认:latest
+		props.put("auto.offset.reset", "latest");
 	    props.put("enable.auto.commit", "true");
 	    props.put("auto.commit.interval.ms", "1000");
 	    props.put("session.timeout.ms", "30000");
@@ -26,7 +28,7 @@ public class KafkaConsumerExample {
 	    props.put("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
 	    String topic = "message";
 	    KafkaConsumer<String, String> consumer = new KafkaConsumer<>(props);
-	    // 设置要监听的topic列表
+	    // 设置要监听的topic列表 可以填写多个topic
 	    consumer.subscribe(Arrays.asList(topic, "test1"));
 	    while (true) {
 	    	ConsumerRecords<String, String> records = consumer.poll(100);

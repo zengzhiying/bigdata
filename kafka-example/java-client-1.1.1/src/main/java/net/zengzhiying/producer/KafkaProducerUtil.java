@@ -15,7 +15,7 @@ import org.apache.kafka.clients.producer.ProducerRecord;
 
 public class KafkaProducerUtil {
 	private Producer<String, String> producer;
-    private Properties props=new Properties();
+    private Properties props = new Properties();
     
     public KafkaProducerUtil(String cloudHosts){
         //定义连接的broker list
@@ -48,6 +48,7 @@ public class KafkaProducerUtil {
      * 关闭kafka连接
      */
     public void closeKafkaProducer() {
-        producer.close();
+        if(producer != null)
+            producer.close();
     }
 }
