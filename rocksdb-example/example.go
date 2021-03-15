@@ -12,8 +12,12 @@ import (
 // export CGO_LDFLAGS="-L/usr/local/rocksdb/lib -lrocksdb -lstdc++ -lm -lz -lbz2 -llz4 -lzstd"
 // go build
 // 运行时:
-// export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/rocksdb/lib
+// export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/rocksdb/lib 
+// 或者编译go之前设置: export CGO_LDFLAGS="-L/usr/local/rocksdb/lib -lrocksdb -lstdc++ -lm -lz -lbz2 -llz4 -lzstd -Wl,-rpath /usr/local/rocksdb/lib"
+// 指定运行时库的位置
 // ./rocksdb-example
+
+// 注意: gorocksdb 目前最新为201912的commit, 最新支持到rocksdb 6.15.x版本 6.16由于函数参数变化会报错
 
 
 func main() {
