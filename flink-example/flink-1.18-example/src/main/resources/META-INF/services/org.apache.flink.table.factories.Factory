@@ -1,0 +1,4 @@
+org.example.source.socket.SocketDynamicTableFactory
+org.example.source.socket.ChangelogCsvFormatFactory
+org.example.source.clickhouse.ClickHouseDynamicTableFactory
+org.example.source.clickhouse.ClickHouseFormatFactory

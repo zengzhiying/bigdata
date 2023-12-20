@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.monchickey</groupId>
-    <artifactId>flink-examples</artifactId>
+    <artifactId>flink-1.9.1-example</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
