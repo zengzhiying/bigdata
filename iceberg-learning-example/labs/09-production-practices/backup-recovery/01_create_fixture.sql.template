@@ -1,0 +1,21 @@
+-- Copy this template outside Git and replace <ISOLATED_TABLE_LOCATION> with an
+-- empty, dedicated table prefix. It must not be a shared Warehouse root.
+CREATE NAMESPACE IF NOT EXISTS ice.learning_recovery;
+DROP TABLE IF EXISTS ice.learning_recovery.orders_backup_fixture;
+
+CREATE TABLE ice.learning_recovery.orders_backup_fixture (
+    order_id BIGINT,
+    customer_id BIGINT,
+    order_status STRING,
+    order_total DECIMAL(12, 2),
+    event_time TIMESTAMP
+) USING iceberg
+PARTITIONED BY (days(event_time))
+-- 默认为 s3://root-path/<namespace>/<table>, 这里使用自定义的源路径 s3://warehouse/labs/09/recovery-source/
+LOCATION '<ISOLATED_TABLE_LOCATION>'
+TBLPROPERTIES ('format-version' = '2', 'business-owner' = 'data-platform');
+
+INSERT INTO ice.learning_recovery.orders_backup_fixture VALUES
+    (9401, 801, 'PAID', 60.00, TIMESTAMP '2026-09-01 08:00:00'),
+    (9402, 802, 'SHIPPED', 19.50, TIMESTAMP '2026-09-02 08:00:00'),
+    (9403, 801, 'CREATED', 20.25, TIMESTAMP '2026-09-02 09:00:00');

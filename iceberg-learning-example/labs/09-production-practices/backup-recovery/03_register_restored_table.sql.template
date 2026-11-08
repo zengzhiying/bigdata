@@ -1,0 +1,11 @@
+-- Run only after an external restore has copied the full backup tree back to the
+-- ORIGINAL isolated table location. Replace both placeholders with verified,
+-- explicit values. This registers an existing Metadata JSON; it does not copy
+-- objects and cannot repair a partial object restore.
+CREATE NAMESPACE IF NOT EXISTS ice.learning_recovery_restore;
+
+CALL ice.system.register_table(
+    table => 'learning_recovery_restore.orders_backup_fixture',
+    -- 文件要写完整指定的路径例如 s3://warehouse/labs/09/recovery-source/metadata/00001-51325997-0430-46ea-a012-bbf2a13bf91d.metadata.json
+    metadata_file => '<RESTORED_METADATA_JSON_AT_ORIGINAL_LOCATION>'
+);

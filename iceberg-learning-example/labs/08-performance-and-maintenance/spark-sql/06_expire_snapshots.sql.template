@@ -1,0 +1,13 @@
+-- Copy this template to a local, untracked .sql file and replace the placeholder
+-- with a non-current snapshot ID returned by 05_inspect_snapshots.sql.
+-- Do not expire snapshots that are needed by another reader, reference, audit, or backup.
+CALL ice.system.expire_snapshots(
+    table => 'learning_maintenance.events_binpack',
+    snapshot_ids => array(CAST(<SNAPSHOT_ID_TO_EXPIRE> AS BIGINT)),
+    clean_expired_metadata => true
+);
+
+SELECT snapshot_id, committed_at, operation
+FROM ice.learning_maintenance.events_binpack.snapshots
+ORDER BY committed_at;
+

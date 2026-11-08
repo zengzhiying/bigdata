@@ -1,0 +1,19 @@
+# 运行示例前将此文件复制为本地忽略文件。
+# 以下值只是外部管理环境的占位配置。
+catalog:
+  type: rest
+  uri: http://catalog.example.invalid
+  # Keep this value identical across Spark, Flink and Trino.
+  warehouse: s3://warehouse
+  name: ice
+  namespace: learning
+  properties:
+    # 通过环境变量或外部运行时设置凭据。
+    # 不要在此处提交访问密钥。
+    region: us-east-1
+    s3_endpoint: http://storage.example.invalid:9000
+    s3_path_style_access: true
+
+examples:
+  namespace: learning
+  table_prefix: iceberg_learning_

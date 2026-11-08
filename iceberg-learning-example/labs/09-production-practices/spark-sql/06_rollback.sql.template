@@ -1,0 +1,10 @@
+-- Copy outside tracked files and replace BOTH placeholders with the recorded baseline ID.
+-- Pause all writers; retain the baseline snapshot and its files until recovery is complete.
+SELECT * FROM ice.learning_production.orders VERSION AS OF <BASELINE_SNAPSHOT_ID>
+ORDER BY order_id;
+
+CALL ice.system.rollback_to_snapshot('learning_production.orders', <BASELINE_SNAPSHOT_ID>);
+
+SELECT name, snapshot_id FROM ice.learning_production.orders.refs WHERE name = 'main';
+SELECT made_current_at, snapshot_id, is_current_ancestor
+FROM ice.learning_production.orders.history ORDER BY made_current_at;

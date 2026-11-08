@@ -1,0 +1,15 @@
+# 实验 10 验证记录
+
+将此文件复制到仓库外或被忽略的本地目录后填写。不要记录 Catalog URI、对象存储端点或凭据。
+
+- 验证日期：
+- Spark / Flink / Trino 实际版本：
+- Catalog 实现和 Warehouse 标识（脱敏）：
+- Flink 作业 ID、Checkpoint ID 和批次投递顺序：
+- Spark `raw_event_check` / `current_state_check`：
+- Spark 质量门禁、演进、维护逻辑一致性和最终断言：
+- Trino `trino_current_state_check` / `trino_metrics_check`：
+- 维护后的 `replace` Snapshot ID：
+- 已知差异、失败退出码和处理结论：
+
+只有 Flink、Spark 和 Trino 路径都通过后，才将学习计划和兼容性矩阵中的阶段 10 状态更新为“已验证”。

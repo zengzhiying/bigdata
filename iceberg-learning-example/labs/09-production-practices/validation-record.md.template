@@ -1,0 +1,20 @@
+# 实验 09 手动验证记录
+
+- 日期 / 操作者：
+- Git commit：
+- Java / Spark / Iceberg Runtime 实际版本：
+- REST Catalog 实现及版本 / 存储实现及版本：
+- Catalog 名 / 脱敏 Warehouse / Spark 会话时区：
+- 隔离表 / 已暂停的写入及维护任务：
+- small_file_bytes / max_small_file_ratio / max_snapshot_age_seconds：
+- 基线 Snapshot ID / 基线完整行 / 总额：
+- 正常质量检查结果及退出码：
+- 健康报告（当前 Snapshot、文件数量大小、小文件比例、Manifest、保留快照）：
+- 坏数据注入后的 Snapshot ID / 质量指标 / 异常及非零退出码：
+- 第一次回滚后的 main ID / 完整行及引用断言 / 退出码：
+- 错误 UPDATE 后的 Snapshot ID / 总额 / 异常及非零退出码：
+- 第二次回滚后的 main ID / 完整行及引用断言 / 退出码：
+- 清理结果：
+- 引擎差异 / 限制 / 后续问题：
+
+状态：待验证。填写实际结果后更新；不记录凭据、未脱敏地址或完整集群日志。

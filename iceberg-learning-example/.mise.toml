@@ -1,0 +1,7 @@
+# 项目目录级工具版本，不会改变系统默认 Java。
+[tools]
+java = "temurin-17"
+
+# Python 3.11 仍是可复现基线，Python 3.12 也受支持。
+# 如果希望项目自动选择 Python，可取消下面的注释。
+# python = "3.11"

@@ -1,0 +1,4 @@
+-- Run this file ONLY with the reader identity. It is expected to fail with an
+-- authorization error before updating table data or metadata.
+INSERT INTO ice.learning_security.orders_access_fixture VALUES
+    (9399, 799, 'CREATED', 1.00, TIMESTAMP '2026-09-03 12:00:00');

@@ -1,0 +1,29 @@
+-- Rendered by workdir/flink-cdc-sql.sh. Do not put credentials or a local path in Git.
+SET 'execution.checkpointing.interval' = '10 s';
+SET 'execution.checkpointing.mode' = 'EXACTLY_ONCE';
+SET 'execution.checkpointing.externalized-checkpoint-retention' = 'RETAIN_ON_CANCELLATION';
+SET 'pipeline.name' = 'iceberg-learning-capstone-cdc-append';
+
+CREATE TEMPORARY TABLE cdc_input (
+    event_id STRING,
+    operation STRING,
+    order_id BIGINT,
+    event_version BIGINT,
+    event_time TIMESTAMP(3),
+    customer_id BIGINT,
+    order_status STRING,
+    order_total DECIMAL(12, 2),
+    event_day DATE,
+    WATERMARK FOR event_time AS event_time - INTERVAL '5' SECOND
+) WITH (
+    'connector' = 'filesystem',
+    'path' = __CDC_INPUT_PATH__,
+    'format' = 'json',
+    'source.monitor-interval' = '5 s'
+);
+
+-- The source is append-only. Spark applies the CDC current-state contract later.
+INSERT INTO ice.learning_capstone.orders_cdc_raw
+SELECT event_id, operation, order_id, event_version, event_time,
+       customer_id, order_status, order_total, event_day
+FROM cdc_input;

@@ -1,0 +1,15 @@
+# 实验 09 权限验证记录
+
+- 日期 / 操作者：
+- Git commit：
+- Catalog 实现及认证方式：
+- 对象存储实现及身份来源：
+- Fixture 的 Catalog 名、Namespace、脱敏 Location：
+- reader 读取结果：
+- reader 写入拒绝的退出码、拒绝层（Catalog / Storage / Engine）及脱敏错误：
+- 越权后 `order_id = 9399` 的行数：
+- writer 追加结果及断言：
+- maintainer / admin 权限边界的实际配置：
+- 清理结果与限制：
+
+状态：待外部手动验证。不得记录令牌、访问密钥、完整服务地址或完整引擎日志。
